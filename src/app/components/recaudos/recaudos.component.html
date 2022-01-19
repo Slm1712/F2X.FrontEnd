@@ -1,0 +1,126 @@
+<div class="bodyCustomer">
+    <div class="container">
+
+        <div class="cardBox">
+            <div class="card" (click)="optData=0">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <div class="numbers">1,504/2,500 </div>
+                        <div class="carName">unidades</div>
+                    </div>
+                    <div>
+                        <div class="numbers" style="font-weight: bold;">60% </div>
+                        <div class="iconBx">
+                            <ion-icon name="library-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" (click)="optData=1">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <div class="numbers">98/150 </div>
+                        <div class="carName">Ubicaciones</div>
+                    </div>
+                    <div>
+                        <div class="numbers" style="font-weight: bold;">67% </div>
+                        <div class="iconBx">
+                            <ion-icon name="alert-circle-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" (click)="optData=2">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <div class="numbers">10</div>
+                        <div class="carName">Diferencia Ubicaciones</div>
+                    </div>
+                    <div>
+                        <div class="numbers" style="font-weight: bold;">9% </div>
+                        <div class="iconBx">
+                            <ion-icon name="invert-mode-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" (click)="optData=3">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <div class="numbers">0</div>
+                        <div class="carName">Diferencia Referencia(SKU)</div>
+                    </div>
+                    <div>
+                        <div class="numbers" style="font-weight: bold;">100% </div>
+                        <div class="iconBx">
+                            <ion-icon name="layers-outline"></ion-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      
+        <!-- ubicaciones -->
+        <div class="containerDosUbicaciones">
+            <div class="cardList">
+                <div class="cardHeader">
+                    <h2>RESUMEN POR UBICACIONES :
+                        <span class="numberData">150</span>
+                    </h2>
+                </div>
+
+                <div style="display: flex;" layout="row">
+                    <div class='div-right'>
+                        <mat-paginator #paginator [length]="totalRows$ | async" [pageIndex]="0" [pageSize]="10"
+                            [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+                    </div>
+                </div>
+                <div class="animated fadeIn">
+                    <mat-accordion displayMode="flat" multi class="mat-table">
+                        <section matSort class="mat-elevation-z2 mat-header-row">
+                           
+                            <span class="mat-header-cell">Estacion</span>
+                            <span class="mat-header-cell">Sentido</span>
+                            <span class="mat-header-cell">Hora</span>
+                            <span class="mat-header-cell">Categoria</span>
+
+
+
+
+                        </section>
+                        <div style="overflow-y: auto; height: 550px;">
+                            <mat-expansion-panel [disabled]="true" #mep="matExpansionPanel"
+                                *ngFor="let item of displayedRows$ | async">
+
+                                <mat-expansion-panel-header class="mat-row">
+
+                                    <span class="mat-cell" hidden>{{item.recaudoEstacion}}</span>
+                                    <span class="mat-cell" style="justify-content: left">{{item.recaudoEstacion}}</span>
+                                    <span class="mat-cell" style="justify-content: left">{{item.recaudoSentido}}</span>
+                                    <span class="mat-cell" style="justify-content: left">{{item.recaudoHora}}</span>
+                                    <span class="mat-cell" style="justify-content: left">{{item.recaudoCategoria}}</span>
+
+
+                                </mat-expansion-panel-header>
+                            </mat-expansion-panel>
+                        </div>
+
+                    </mat-accordion>
+
+                </div>
+            </div>
+
+            <div class="cardList">
+                <div class="cardHeader">
+                    <h2>REFERENCIAS</h2>
+                </div>
+                <ngx-charts-pie-chart [results]="single" [gradient]="gradient" [legend]="showLegend"
+                    [labels]="showLabels" [doughnut]="isDoughnut" (select)="onSelect($event)"
+                    (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+                </ngx-charts-pie-chart>
+            </div>
+        </div>
+    </div>
+</div>

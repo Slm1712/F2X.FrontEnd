@@ -1,0 +1,123 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+/*@import 'src/my-theme.scss';*/
+
+
+body {
+  padding-bottom: 50px;
+}
+
+.main-container {
+  margin-top: 0px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fast {
+  -webkit-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.img-logo {
+  width: 250px;
+}
+
+.textresponsive {
+  font-size: 20px !important;
+}
+
+.container {
+  width: 100%;
+  padding-right: 1px !important;
+  padding-left: 1px !important;
+  ;
+  margin-right: auto !important;
+  ;
+  margin-left: auto !important;
+  ;
+}
+
+/* @media (min-width: 576px) {
+      .textresponsive{
+        font-size: 14px !important;
+   } } */
+
+/*  Medium devices (tablets, 768px and up) */
+
+/* @media (min-width: 768px) {
+     .textresponsive{
+      font-size: 18px !important;
+   }} */
+
+/* // Large devices (desktops, 992px and up) */
+
+/* @media (min-width: 992px) {
+     .textresponsive{
+      font-size: 24px !important;
+   }} */
+
+/* // Extra large devices (large desktops, 1200px and up) */
+
+/* @media (min-width: 1200px) {
+      .textresponsive{
+        font-size: 36px !important;
+   }} */
+
+
+.fa-green {
+  color: #2ade2a;
+}
+
+.fa-red {
+  color: red;
+}
+
+.modal-class-custom{
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container-modal{
+  margin: 5em;
+}
+
+.filter {
+  display: block;
+  color: #287bff;
+  font-size: x-large;
+}
+
+
+::ng-deep .mat-paginator-icon {
+  background-color: #287bff;
+}
+.mat-paginator-icon {
+  background-color: #287bff !important;
+  color: white;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.material-icons {
+  font-size: 20px !important/* Preferred icon size */
+}

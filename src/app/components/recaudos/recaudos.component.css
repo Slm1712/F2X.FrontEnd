@@ -1,0 +1,438 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --blue:  #287bff;
+    --white: #fff;
+    --grey:  #f5f5f5;
+    --black: #222;
+    --black2: #999;
+}
+
+.bodyCustomer{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+}
+
+.cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 30px;
+}
+
+
+.cardBox .card{
+    position: relative;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox .card .numbers{
+    position: relative;
+    font-weight: 500px;
+    font-size: 2.5em;
+    color: var(--blue);
+}
+
+.cardBox .card .carName{
+    color: var(--black2);
+    font-size: 2em;
+    margin-top: 5px;
+}
+
+.cardBox .card .iconBx{
+    font-size: 3.5em;
+}
+
+.cardBox .card:hover{
+    background: var(--blue);
+}
+
+
+.cardBox .card:hover .numbers,
+.cardBox .card:hover .carName,
+.cardBox .card:hover .iconBx{
+   color: var(--white);
+}
+
+
+/* 2da linea */
+.containerDos{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 30px;
+}
+
+.containerDosUbicaciones{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 30px;
+}
+
+
+/* list */
+.containerDos .cardList{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    max-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+/* ubicaciones */
+.containerDosUbicaciones .cardList{
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    max-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.carHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.carHeader h2{
+    font-weight: 600;
+    color: var(--blue);
+} 
+
+.containerDos table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 1.4em;
+    max-height: 50px !important;
+}
+
+.containerDos table thead td{
+    font-weight: 600;
+}
+
+.containerDos .cardList table tr{
+     color: var(--black);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.containerDos .cardList table tr:last-child{
+    border-bottom: none;
+}
+.containerDos .cardList table tbody tr:hover{
+    background: var(--blue);
+    color: var(--white);
+}
+
+
+.containerDos table tbody td{
+    padding: 10px;
+}
+
+.containerDos table tbody tr th:last-child{
+    text-align: end;
+}
+
+
+.containerDos table tbody tr td:last-child{
+    text-align: end;
+}
+
+.status.success{
+    padding: 2px 4px;
+    background: #8de02c;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+
+
+.status.warning{
+    padding: 2px 4px;
+    background: #f9ca4f;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+
+.status.error{
+    padding: 2px 4px;
+    background: #f00;
+    color: var(--white);
+    border-radius: 4px;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.rowCustomer{
+    justify-content: center;
+}
+
+
+
+
+.boxDashBoard{
+    min-width: 5em;
+    max-width: 20em;
+    width: 15em;
+    font-size: 2em;
+}
+
+
+.cardHeader .numberData{    
+    position: relative;
+    font-weight: 500px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--blue);
+}
+
+
+.containerDosUbicaciones table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 1.4em;
+    max-height: 50px !important;
+}
+
+.containerDosUbicaciones table thead td{
+    font-weight: 600;
+}
+
+.containerDosUbicaciones .cardList table tr{
+     color: var(--black);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.containerDosUbicaciones .cardList table tr:last-child{
+    border-bottom: none;
+}
+.containerDosUbicaciones .cardList table tbody tr:hover{
+    background: var(--blue);
+    color: var(--white);
+}
+
+
+.containerDosUbicaciones table tbody td{
+    padding: 10px;
+}
+
+.containerDosUbicaciones table tbody tr th:last-child{
+    text-align: end;
+}
+
+
+.containerDosUbicaciones table tbody tr td:last-child{
+    text-align: end;
+}
+
+td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:first-of-type {
+    padding-left: 24px;
+    padding-top: 10px;
+    padding-right: 15px;
+  }
+  
+  /* Animaciones */
+  
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  .fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+  
+  .siz {
+    font-size: 16pt !important;
+  }
+  
+  .combo {
+    margin-left: 55%;
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 991px) {
+    .combo {
+      margin-left: 40%;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .combo {
+      margin-left: 20%;
+      margin-top: 20px;
+    }
+  }
+  
+  .colortext {
+    color: blue !important;
+  }
+  
+  .mat-accordion .mat-header-row {
+    padding-left: 1.5rem;
+    padding-right: 2rem;
+    border-bottom: none;
+    background: #f5f5f5;
+  }
+  
+  .mat-expansion-panel-header.mat-row {
+    border-bottom: none;
+  }
+  
+  .mat-table {
+    display: block;
+    max-height: 300px !important;
+    overflow-y: auto;
+  }
+  
+  .mat-header-row {
+    min-height: 56px;
+  }
+  
+  .mat-row {
+    height: 55px;
+  }
+  
+  .mat-row, .mat-header-row {
+    display: flex;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+  
+  ::after {
+    content: '';
+  }
+  
+  .mat-cell, .mat-header-cell {
+    flex: 1;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+  }
+  
+  .mat-cell {
+    font-size: 12px;
+  }
+  
+  .div-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 56px;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+  }
+  
+  .div-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 56px;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+  }
+  
+  .custom-button {
+    width: 200px;
+    margin: 10px;
+  }
+  
+  .arrow-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    font-size: xx-large;
+  }
+  
+  .left {
+    float: left;
+  }
+  
+  .right {
+    float: right;
+  }
+  
+  .mat-paginator-outer-container {
+    display: block !important;
+  }
+  
+  .mat-paginator-container {
+    margin-left: 200px;
+  }
+  
+  .header {
+    padding: 5px;
+  }
+  
+  
+  .noFilter {
+    display: block;
+    color: darkgrey;
+    font-size: xx-small;
+  }
+  
+  
