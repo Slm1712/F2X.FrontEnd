@@ -11,6 +11,7 @@ import { RecaudosComponent } from './components/recaudos/recaudos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { MatSortModule } from '@angular/material/sort';
     BrowserAnimationsModule,
     HttpClientModule,
     MatPaginatorModule, 
-    MatSortModule
+    MatSortModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

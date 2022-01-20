@@ -1,12 +1,12 @@
 <div class="bodyCustomer">
     <div class="container">
 
-        <div class="cardBox">
+        <!-- <div class="cardBox">
             <div class="card" (click)="optData=0">
                 <div class="d-flex justify-content-between">
                     <div>
                         <div class="numbers">1,504/2,500 </div>
-                        <div class="carName">unidades</div>
+                        <div class="carName">Total de Vehiculos</div>
                     </div>
                     <div>
                         <div class="numbers" style="font-weight: bold;">50% </div>
@@ -16,11 +16,11 @@
                     </div>
                 </div>
             </div>
-            <div class="card" (click)="optData=1">
+            <div class="card" >
                 <div class="d-flex justify-content-between">
                     <div>
                         <div class="numbers">98/150 </div>
-                        <div class="carName">Ubicaciones</div>
+                        <div class="carName">Valor Tributario </div>
                     </div>
                     <div>
                         <div class="numbers" style="font-weight: bold;">67% </div>
@@ -34,7 +34,7 @@
                 <div class="d-flex justify-content-between">
                     <div>
                         <div class="numbers">10</div>
-                        <div class="carName">Diferencia Ubicaciones</div>
+                        <div class="carName">Hora mas trascurrida</div>
                     </div>
                     <div>
                         <div class="numbers" style="font-weight: bold;">9% </div>
@@ -58,15 +58,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-      
+
         <!-- ubicaciones -->
         <div class="containerDosUbicaciones">
             <div class="cardList">
                 <div class="cardHeader">
-                    <h2>RESUMEN POR UBICACIONES :
-                        <span class="numberData">150</span>
+                    <h2>N° Recaudos :
+                        <span class="numberData">{{nRecaudos}}</span>
                     </h2>
                 </div>
 
@@ -80,12 +80,236 @@
                 <div class="animated fadeIn">
                     <mat-accordion displayMode="flat" multi class="mat-table">
                         <section matSort class="mat-elevation-z2 mat-header-row">
-                           
-                            <span class="mat-header-cell">Estacion</span>
-                            <span class="mat-header-cell">Sentido</span>
-                            <span class="mat-header-cell">Hora</span>
-                            <span class="mat-header-cell">Categoria</span>
+                            <span class="mat-header-cell">
+                                <div class="mat-header-cell" mat-sort-header="Estacion">Estacion</div>
+                              
+                                <div class="mat-cell">
+                                  <mat-icon aria-label="filtrar" [matMenuTriggerFor]="menu_2">
+                                    <i class="fas fa-filter noFilter" [ngStyle]="{'display' : display_2 ? 'initial' : 'none'}"></i>
+                                    <i class="fas fa-filter filter" [ngStyle]="{'display' : display_2 ? 'none' : 'initial' }"></i>
+                                  </mat-icon>
+                                </div>
+                                <div class="mat-cell">
+                                  <mat-menu #menu_2="matMenu">
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <mat-form-field>
+                                          <mat-label>Condición</mat-label>
+                                          <mat-select [(ngModel)]="filterSelected_2">
+                                            <mat-option value="1">Sea igual
+                                            </mat-option>
+                                            <mat-option value="2">Contiene
+                                            </mat-option>
+                                            <mat-option value="3">Diferente de
+                                            </mat-option>                
+                                          </mat-select>
+                                        </mat-form-field>
+                                      </div>
+                                    </div>  
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <mat-form-field [hidden]="filterSelected_2 == '4' ? true:false">
+                                          <input autocomplete="off" [(ngModel)]="filterInputValue_2" matInput type="text" placeholder="Ingrese el valor" uppercase>
+                                        </mat-form-field>                
+                              
+                                      </div>
+                              
+                                    </div>
+                                   
+                              
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <button mat-button color="disabled"
+                                          (click)="display_2 = true;filterSelected_2 = '1';filterDate_2 = '';filterDateIni_2 = '';filterDateEnd_2 = '';$event ?  filterEstacion('0', filterInputValue_2, filterInputValueIni_2, filterInputValueEnd_2) : null"><span style="color:#673ab7">Limpiar</span></button>
+                                        <button mat-button color="primary"
+                                          (click)="display_2 = false;filterEstacion(filterSelected_2, filterInputValue_2, filterInputValueIni_2, filterInputValueEnd_2 )"> <span style="color:#673ab7">Aplicar</span></button>
+                                      </div>
+                                    </div>
+                              
+                                  </mat-menu>
+                                </div>
+                              
+                              </span>
+                              <span class="mat-header-cell">
+                                <div class="mat-header-cell" mat-sort-header="Sentido">Sentido</div>
+                              
+                                <div class="mat-cell">
+                                  <mat-icon aria-label="filtrar" [matMenuTriggerFor]="menu_3">
+                                    <i class="fas fa-filter noFilter" [ngStyle]="{'display' : display_3 ? 'initial' : 'none'}"></i>
+                                    <i class="fas fa-filter filter" [ngStyle]="{'display' : display_3 ? 'none' : 'initial' }"></i>
+                                  </mat-icon>
+                                </div>
+                                <div class="mat-cell">
+                                  <mat-menu #menu_3="matMenu">
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <mat-form-field>
+                                          <mat-label>Condición</mat-label>
+                                          <mat-select [(ngModel)]="filterSelected_3">
+                                            <mat-option value="1">Sea igual
+                                            </mat-option>
+                                            <mat-option value="2">Contiene
+                                            </mat-option>
+                                            <mat-option value="3">Diferente de
+                                            </mat-option>                
+                                          </mat-select>
+                                        </mat-form-field>
+                                      </div>
+                                    </div>  
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <mat-form-field [hidden]="filterSelected_3 == '4' ? true:false">
+                                          <input autocomplete="off" [(ngModel)]="filterInputValue_3" matInput type="text" placeholder="Ingrese el valor" uppercase>
+                                        </mat-form-field>                
+                              
+                                      </div>
+                              
+                                    </div>
+                                   
+                              
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <button mat-button color="disabled"
+                                          (click)="display_3 = true;filterSelected_3 = '1';filterDate_3 = '';filterDateIni_3 = '';filterDateEnd_3 = '';$event ?  filterSentido('0', filterInputValue_3, filterInputValueIni_3, filterInputValueEnd_3) : null"><span style="color:#673ab7">Limpiar</span></button>
+                                        <button mat-button color="primary"
+                                          (click)="display_3 = false;filterSentido(filterSelected_3, filterInputValue_3, filterInputValueIni_3, filterInputValueEnd_3 )"> <span style="color:#673ab7">Aplicar</span></button>
+                                      </div>
+                                    </div>
+                              
+                                  </mat-menu>
+                                </div>
+                              
+                              </span>
 
+                            <span class="mat-header-cell">
+                                <div class="mat-header-cell" mat-sort-header="Hora">Hora</div>
+
+                                <div class="mat-cell">
+                                    <mat-icon aria-label="filtrar" [matMenuTriggerFor]="menu_1">
+                                        <i class="fas fa-filter noFilter"
+                                            [ngStyle]="{'display' : display_1 ? 'initial' : 'none'}"></i>
+                                        <i class="fas fa-filter filter"
+                                            [ngStyle]="{'display' : display_1 ? 'none' : 'initial' }"></i>
+                                    </mat-icon>
+                                </div>
+                                <div class="mat-cell">
+                                    <mat-menu #menu_1="matMenu">
+                                        <div mat-menu-item (click)="$event.stopPropagation();">
+                                            <div flex>
+                                                <mat-form-field>
+                                                    <mat-label>Condición</mat-label>
+                                                    <mat-select [(ngModel)]="filterSelected_1">
+                                                        <mat-option value="1">Sea igual
+                                                        </mat-option>
+                                                        <mat-option value="2">Contiene
+                                                        </mat-option>
+                                                        <mat-option value="3">Diferente de
+                                                        </mat-option>
+                                                        <mat-option value="4">Entre
+                                                        </mat-option>
+                                                        <mat-option value="5">Menor que
+                                                        </mat-option>
+                                                        <mat-option value="6">Mayor que
+                                                        </mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        <div mat-menu-item (click)="$event.stopPropagation();">
+                                            <div flex>
+
+                                                <mat-form-field [hidden]="filterSelected_1 == '4' ? true:false">
+                                                    <input autocomplete="off" [(ngModel)]="filterInputValue_1" matInput type="number"
+                                                        placeholder="Ingrese el valor">
+                                                </mat-form-field>
+
+                                                <mat-form-field [hidden]="filterSelected_1 == '4' ? false:true">
+                                                    <input autocomplete="off" [(ngModel)]="filterInputValueIni_1" matInput type="number"
+                                                        placeholder="Ingrese el valor inicial">
+                                                </mat-form-field>
+
+                                            </div>
+
+
+                                        </div>
+                                        <div mat-menu-item (click)="$event.stopPropagation();">
+                                            <div flex>
+
+                                                <mat-form-field [hidden]="filterSelected_1 == '4' ? false:true">
+                                                    <input autocomplete="off" [(ngModel)]="filterInputValueEnd_1" matInput type="number"
+                                                        placeholder="Ingrese el valor final">
+                                                </mat-form-field>
+
+                                            </div>
+
+
+                                        </div>
+
+                                        <div mat-menu-item (click)="$event.stopPropagation();">
+                                            <div flex>
+                                                <button mat-button color="disabled"
+                                                    (click)="display_1 = true;filterSelected_1 = '1';filterDate_1 = '';filterDateIni_1 = '';filterDateEnd_1 = '';$event ?  filterHora('0', filterInputValue_1, filterInputValueIni_1, filterInputValueEnd_1) : null"><span
+                                                        style="color:#673ab7">Limpiar</span></button>
+                                                <button mat-button color="primary"
+                                                    (click)="display_1 = false;filterHora(filterSelected_1, filterInputValue_1, filterInputValueIni_1, filterInputValueEnd_1 )"><span
+                                                        style="color:#673ab7">Aplicar</span></button>
+                                            </div>
+                                        </div>
+
+                                    </mat-menu>
+                                </div>
+
+                            </span>
+                            <span class="mat-header-cell">
+                                <div class="mat-header-cell" mat-sort-header="Categoria">Categoria</div>
+                              
+                                <div class="mat-cell">
+                                  <mat-icon aria-label="filtrar" [matMenuTriggerFor]="menu_4">
+                                    <i class="fas fa-filter noFilter" [ngStyle]="{'display' : display_4 ? 'initial' : 'none'}"></i>
+                                    <i class="fas fa-filter filter" [ngStyle]="{'display' : display_4 ? 'none' : 'initial' }"></i>
+                                  </mat-icon>
+                                </div>
+                                <div class="mat-cell">
+                                  <mat-menu #menu_4="matMenu">
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <mat-form-field>
+                                          <mat-label>Condición</mat-label>
+                                          <mat-select [(ngModel)]="filterSelected_4">
+                                            <mat-option value="1">Sea igual
+                                            </mat-option>
+                                            <mat-option value="2">Contiene
+                                            </mat-option>
+                                            <mat-option value="3">Diferente de
+                                            </mat-option>                
+                                          </mat-select>
+                                        </mat-form-field>
+                                      </div>
+                                    </div>  
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <mat-form-field [hidden]="filterSelected_4 == '4' ? true:false">
+                                          <input autocomplete="off" [(ngModel)]="filterInputValue_4" matInput type="text" placeholder="Ingrese el valor" uppercase>
+                                        </mat-form-field>                
+                              
+                                      </div>
+                              
+                                    </div>
+                                   
+                              
+                                    <div mat-menu-item (click)="$event.stopPropagation();">
+                                      <div flex>
+                                        <button mat-button color="disabled"
+                                          (click)="display_4 = true;filterSelected_4 = '1';filterDate_4 = '';filterDateIni_4 = '';filterDateEnd_4 = '';$event ?  filterCategoria('0', filterInputValue_4, filterInputValueIni_4, filterInputValueEnd_4) : null"><span style="color:#673ab7">Limpiar</span></button>
+                                        <button mat-button color="primary"
+                                          (click)="display_4 = false;filterCategoria(filterSelected_4, filterInputValue_4, filterInputValueIni_4, filterInputValueEnd_4 )"> <span style="color:#673ab7">Aplicar</span></button>
+                                      </div>
+                                    </div>
+                              
+                                  </mat-menu>
+                                </div>
+                              
+                              </span>
 
 
 
@@ -100,7 +324,8 @@
                                     <span class="mat-cell" style="justify-content: left">{{item.recaudoEstacion}}</span>
                                     <span class="mat-cell" style="justify-content: left">{{item.recaudoSentido}}</span>
                                     <span class="mat-cell" style="justify-content: left">{{item.recaudoHora}}</span>
-                                    <span class="mat-cell" style="justify-content: left">{{item.recaudoCategoria}}</span>
+                                    <span class="mat-cell"
+                                        style="justify-content: left">{{item.recaudoCategoria}}</span>
 
 
                                 </mat-expansion-panel-header>
@@ -114,12 +339,95 @@
 
             <div class="cardList">
                 <div class="cardHeader">
-                    <h2>REFERENCIAS</h2>
+                    <h2>INFORMACION TRIBUTARIO</h2>
+                    <ngx-charts-bar-vertical-2d [scheme]="colorScheme" [results]="multi" [gradient]="gradient"
+                    [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+                    [legendTitle]="legendTitle" (select)="onSelect($event)" (activate)="onActivate($event)"
+                    (deactivate)="onDeactivate($event)">
+                    </ngx-charts-bar-vertical-2d>
                 </div>
-                <ngx-charts-pie-chart [results]="single" [gradient]="gradient" [legend]="showLegend"
-                    [labels]="showLabels" [doughnut]="isDoughnut" (select)="onSelect($event)"
-                    (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
-                </ngx-charts-pie-chart>
+            </div>
+        </div>
+
+        <div class="containerDos">
+            <div class="cardList">
+                <div class="cardHeader"></div>
+                    <h2>INFORME TRIBUTARIO</h2>
+                <table class="table"> 
+                    <thead>
+                        <tr>
+                            <th>fecha</th>
+                            <th colspan="2" class="titleTable">ANDES</th>
+                            <th colspan="2" class="titleTable">FUSCA</th>
+                            <th colspan="2" class="titleTable">UNISABANA</th>
+
+                        </tr>
+                        
+                        <tr>
+                            <th></th>
+                            <th class="titleTable">cantidad</th>
+                            <th class="titleTable">recaudo</th>                            
+                            <th class="titleTable">cantidad</th>
+                            <th class="titleTable">recaudo</th>
+                            <th class="titleTable">cantidad</th>
+                            <th class="titleTable">recaudo</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of listRecaudosInforme">
+                            <td>{{ item.recaudoHora }}</td>
+                            <td style="border-left: solid #a2a2a2;">C:  {{ item.grupo1C }}</td>
+                            <td>R:  {{ item.grupo1R | currency }}</td>
+                            <td style="border-left: solid #f3f3f3;">C:  {{ item.grupo2C }}</td>
+                            <td>R:  {{ item.grupo2R | currency }}</td>
+                            <td style="border-left: solid #f3f3f3;">C:  {{ item.grupo3C }}</td>
+                            <td>R:  {{ item.grupo3R | currency }}</td>
+                        </tr>
+                        <tr>
+                            <td>total</td>
+                            <td>{{cantTotalG1}}</td>
+                            <td>{{recaudoTotalG1 | currency }}</td>
+                            <td>{{cantTotalG2}}</td>
+                            <td>{{recaudoTotalG2 | currency }}</td>
+                            <td>{{cantTotalG3}}</td>
+                            <td>{{recaudoTotalG3 | currency }}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="cardList">
+                <div class="cardBox">
+                    <div class="card" (click)="optData=0">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="numbers"> {{ cantTotalG1+cantTotalG2+cantTotalG3 }}</div>
+                                <div class="carName">Numero de Vehiculos</div>
+                            </div>
+                            <div>
+                                <div class="iconBx">
+                                    <ion-icon name="car-sport-outline"></ion-icon>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" >
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <div class="numbers">{{ recaudoTotalG1+recaudoTotalG2+recaudoTotalG3  | currency }}</div>
+                                <div class="carName">Valor Recaudado </div>
+                            </div>
+                            <div>
+                                <div class="iconBx">
+                                    <ion-icon name="cash-outline"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

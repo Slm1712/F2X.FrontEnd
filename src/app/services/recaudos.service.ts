@@ -20,4 +20,8 @@ export class RecaudosService {
   getRecaudos(): Observable<any> {
     return this.http.get(`${this.url}/getRecaudos/`);
   }
+  
+  getInformeRecaudos(): Observable<any> {
+    return this.http.get(`${this.url}/getInformeRecaudo/`);
+  }
 }

@@ -10,3 +10,14 @@ export interface recaudoDTO
 }
 
 
+export interface recaudoInformeDTO
+{    
+    recaudoHora: number,
+    grupo1C: number,
+    grupo1R: number,
+    grupo2C: number,
+    grupo2R: number,
+    grupo3C: number,
+    grupo3R: number
+}
+

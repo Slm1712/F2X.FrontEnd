@@ -29,7 +29,7 @@
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: 1fr;
     grid-gap: 30px;
 }
 
@@ -80,7 +80,7 @@
     width: 100%;
     padding: 20px;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
     grid-gap: 30px;
 }
 
@@ -93,13 +93,22 @@
     grid-gap: 30px;
 }
 
+.containerDosUbicaciones{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
 
 /* list */
 .containerDos .cardList{
     position: relative;
     display: grid;
-    min-height: 500px;
-    max-height: 500px;
+    min-height: 1000px;
+    max-height: 1500px;
     background: var(--white);
     padding: 20px;
     box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
@@ -435,4 +444,29 @@ td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type, th.mat-header-cell:
     font-size: xx-small;
   }
   
+  .titleTable{
+    font-size: 1.2em;
+    align-items: center;
+    text-align: center;
+    border: 5px rgba(0, 0, 0, 0.08);
+  }
+
+  .tableInforme{
+    overflow-y: auto;
+    max-height: 100px;
+    overflow-x: auto;
+  }
+
+  @media (max-width: 1200px) {
+    .containerDosUbicaciones {
+      grid-template-columns: 1fr;
+    }
+    .containerDos{
+      grid-template-columns: 1fr;
+    }
+    .table{
+      overflow-x: auto;
+    }
+  }
+
   
